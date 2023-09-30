@@ -1,12 +1,16 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using System.Threading.Tasks;
+using System.Collections.Generic;
+using System.Linq;
+using System;
 
 namespace emojis_webapp.Pages;
 
 
 public class EmojisModel : PageModel
 {
-    //private readonly IGithubEmojiService _GithubEmojiService;
+    //private IGithubEmojiService _GithubEmojiService;
 
     // public EmojisModel()
     // {
@@ -23,13 +27,17 @@ public class EmojisModel : PageModel
     public EmojisModel(ILogger<EmojisModel> logger)
     {
         _logger = logger;
-        IGithubEmojiService svc = new GithubEmojiService();
-        //return model = svc.GetEmojis();
+
     }
 
 
+    public IList<Emoji> Emojis { get; set; }
 
-    public void OnGet()
+
+    public async Task OnGet()
     {
+        Emojis = new List<Emoji>();
+        var _emojiService = new GithubEmojiService();
+        Emojis = await _emojiService.GetEmojis();
     }
 }

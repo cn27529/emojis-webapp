@@ -37,6 +37,8 @@ public class GithubEmojiService : IGithubEmojiService
         return _emojis;
     }
 
+
+
     public IList<Emoji> GetEmojisFrom(string content)
     {
         var dictionary = JsonConvert.DeserializeObject<Dictionary<string, string>>(content);

@@ -4,4 +4,12 @@
     ViewData["Title"] = "Emojis";
 }
 <h1>@ViewData["Title"]</h1>
-<p>Use this page to detail your site's Emojis.</p>
+<div class="allEmojis">
+    @foreach (var em in Model.Emojis)
+    {
+        <div class="emoji">
+            <img src="@em.Url" alt="emoji @em.Key" />
+            <code>@em.Key</code>
+        </div>
+    }
+</div>
