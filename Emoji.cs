@@ -1,9 +1,10 @@
-namespace emojis_webapp
+namespace emojis_webapp;
+public class Emoji
 {
-    public class Emoji
+    public Emoji()
     {
-        public string Key { get; set; }
-        public string Url { get; set; }
-    }
 
+    }
+    public string Key { get; set; }
+    public string Url { get; set; }
 }

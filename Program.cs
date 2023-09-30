@@ -7,7 +7,13 @@ builder.Services.AddRazorPages();
 
 //https://learn.microsoft.com/zh-tw/aspnet/core/fundamentals/dependency-injection?view=aspnetcore-7.0
 //.NET Core 中的相依性插入
-builder.Services.AddSingleton<IGithubEmojiService, GithubEmojiService>();
+//builder.Services.AddSingleton<IGithubEmojiService, GithubEmojiService>();
+//builder.Services.AddSingleton<GithubEmojiService>(sp => ActivatorUtilities.CreateInstance<GithubEmojiService>(sp));
+//builder.Services.AddScoped<IGithubEmojiService, GithubEmojiService>();
+builder.Services.AddMyDependencyGroup();
+
+//builder.Services.AddSingleton<IGithubEmojiService>(sp => new GithubEmojiService(sp.GetRequiredService<IGithubEmojiService>()));
+
 
 var app = builder.Build();
 
@@ -22,6 +28,7 @@ if (!app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
+//app.UseMyMiddleware();
 app.UseRouting();
 
 app.UseAuthorization();
