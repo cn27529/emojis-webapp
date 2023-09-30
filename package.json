@@ -1,0 +1,13 @@
+{
+  "name": "emojis-webapp",
+  "version": "1.0.0",
+  "description": "dotnet core webapp read github emojis api",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "dotnet watch run",
+    "build": "dotnet clean && dotnet build"
+  },
+  "author": "",
+  "license": "ISC"
+}
