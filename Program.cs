@@ -1,7 +1,13 @@
+using emojis_webapp;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+
+//https://learn.microsoft.com/zh-tw/aspnet/core/fundamentals/dependency-injection?view=aspnetcore-7.0
+//.NET Core 中的相依性插入
+builder.Services.AddSingleton<IGithubEmojiService, GithubEmojiService>();
 
 var app = builder.Build();
 
